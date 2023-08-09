@@ -1,6 +1,4 @@
 import javax.swing.*;
-import java.time.Year;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,6 +30,18 @@ public class Main {
         System.out.println("Домашка закончилась. Всем спасибо, все свободны.");
     }
 
+    private static void task1() {
+        System.out.println("Задание 1");
+        //Инициализация
+        int year; // Задаем интересующий нас год
+        year = Integer.parseInt(JOptionPane.showInputDialog(null, "Задаем интересующий нас год:"));
+        //Решение и Вывод
+        if (isLeap(year)) System.out.println(year + " год является високосным");
+        else System.out.println(year + " не является високосным годом");
+    }
 
+    private static boolean isLeap(int year) {
+        return (year % 400 == 0 || year % 4 == 0) && year % 100 != 0;
+    }
 
 }
