@@ -14,7 +14,7 @@ public class Main {
         }
         switch (taskNumberRun) {
             case 1 -> task1();    //Задание 1
-//            case 2 -> task2();    //Задание 2
+            case 2 -> task2();    //Задание 2
 //            case 3 -> task3();    //Задание 3
 //            case 4 -> task4();    //Задание 4
 //            case 5 -> task5();    //Задание 5
@@ -28,6 +28,39 @@ public class Main {
         }
         System.out.println("_________");
         System.out.println("Домашка закончилась. Всем спасибо, все свободны.");
+    }
+
+    private static void task2() {
+        System.out.println("Задание 2");
+        //Инициализация
+        // Запрашиваем у пользователя операционную систему и год выпуска
+        //System.out.println("Какая у вас операционная система?");
+        String os = JOptionPane.showInputDialog(null, "Введите название вашей операционной системы:");
+        int year = Integer.parseInt(JOptionPane.showInputDialog(null, "Введите год выпуска вашего телефона:"));
+        //Решение
+        //Вывод
+        switch (clientOS(os, year)) {
+            case 0 -> System.out.println(
+                    "Установите облегченную версию приложения для iOS по ссылке");
+            case 1 -> System.out.println(
+                    "Установите облегченную версию приложения для Android по ссылке");
+            case 2 -> System.out.println(
+                    "Установите версию приложения для iOS по ссылке");
+            case 3 -> System.out.println(
+                    "Установите версию приложения для Android по ссылке");
+            default -> System.out.println(
+                    "Для Вашей OS: \"" + os + "\" "+year+" глда выпуска - установка приложения не предусмотрена");
+        }
+    }
+
+    private static int clientOS(String os, int year) {
+        int clientDeviceYear = 2015;
+        // Определяем, какая операционная система установлена
+        if (os.equals("iOS") && year<=clientDeviceYear) return 0; // Переменная clientOS равна 0, так как это iOS старая
+        else if (os.equals("iOS")) return 2; //iOS новая
+        if (os.equals("Android") && year<=clientDeviceYear) return 1;   // Переменная clientOS равна 1, так как это Android старая
+        else if (os.equals("Android")) return 3; // Android - новая
+        return -1;
     }
 
     private static void task1() {
