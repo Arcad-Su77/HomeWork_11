@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class Main {
         switch (taskNumberRun) {
             case 1 -> task1();    //Задание 1
             case 2 -> task2();    //Задание 2
-//            case 3 -> task3();    //Задание 3
+            case 3 -> task3();    //Задание 3
 //            case 4 -> task4();    //Задание 4
 //            case 5 -> task5();    //Задание 5
 //            case 6 -> task6();    //Задание 6
@@ -28,6 +29,10 @@ public class Main {
         }
         System.out.println("_________");
         System.out.println("Домашка закончилась. Всем спасибо, все свободны.");
+    }
+
+    private static void task3() {
+
     }
 
     private static void task2() {
@@ -54,7 +59,7 @@ public class Main {
     }
 
     private static int clientOS(String os, int year) {
-        int clientDeviceYear = 2015;
+        int clientDeviceYear = LocalDate.now().getYear()-3;
         // Определяем, какая операционная система установлена
         if (os.equals("iOS") && year<=clientDeviceYear) return 0; // Переменная clientOS равна 0, так как это iOS старая
         else if (os.equals("iOS")) return 2; //iOS новая
