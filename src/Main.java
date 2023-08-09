@@ -32,7 +32,25 @@ public class Main {
     }
 
     private static void task3() {
+        System.out.println("Задание 4");
+        //Инициализация
+        String deliveryMessag = "Потребуется дней: ";
+        int deliveryDistance = Integer.parseInt(JOptionPane.showInputDialog(null,
+                "Введите расстояние от офиса до клиента:"));
+        //Решение
+        deliveryMessag = deliveryMessag +
+                ((deliveryDey(deliveryDistance)!=0) ?
+                        deliveryDey(deliveryDistance) : "Доставка не предусмотренна");
+        //Вывод
+        System.out.println(deliveryMessag);
+    }
 
+    private static int deliveryDey(int deliveryDistance) {
+        int deliveryDey = 1;
+        if (deliveryDistance > 20 ) deliveryDey += 1;
+        if (deliveryDistance > 60 ) deliveryDey += 1;
+        if (deliveryDistance > 100 ) deliveryDey = 0;
+        return deliveryDey;
     }
 
     private static void task2() {
